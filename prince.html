@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--
+  Girly by FreeHTML5.co
+  Twitter: https://twitter.com/fh5co
+  Facebook: https://fb.com/fh5co
+  URL: https://freehtml5.co
+-->
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="script" href="db.js">
+  <title>Branch Kode | Come if you need good pictures. We are the client hub for all good photographers - </title>
+  <style>
+     .password {
+        border-radius: 25px;
+        box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+        outline: #555;
+    }
+
+     .password::active {
+      outline: #000;
+     }
+    .password ::placeholder {
+        color: #999;
+    }
+
+    .fields input {
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 18px;
+        color: #555;
+        padding: 10px 10px 18px 1px;
+    }
+
+    .signin-button {
+        outline: none;
+        border: none;
+        cursor: pointer;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: 'Lato', sans-serif;
+        color: #fff;
+        text-align: center;
+        background: #0a0a0a;
+        box-shadow: 2px 2px 6px #b1b1b1, -2px -2px 6px #ffffff;
+    }
+    .signin-button:hover {
+        background: #2b2b2b;
+    }
+    .signin-button:active {
+        background: #ff843c;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md  fixed-top maine-menu">
+    <div class="container">
+     <div id="my-nav" class="navbar-collapse">
+        <ul class="navbar-nav mx-auto">
+          <a href="index.html"><img style="width:200px;" src="img/branch.gif" alt=""></a>
+         </ul>
+      </div>
+    </div>
+  </nav>
+<br>
+  <div class="container-fluid fh5co-insta-feed activity">
+    
+    <div class="container recent">
+      <div class="row mb-5 pb-5">
+        <div class="col-lg-12">
+          <div class="twit-box">
+            
+            <div class="media mb-3">
+              <div class="col-md-12">
+                
+                <input type="text" style="border-radius: 22px;" class="form-control"  id="searchInput" placeholder="Where is your shoot" autocomplete="off">
+                <ul id="todoList"></ul>
+                <script>
+                  // Define the list of todo items
+                  const todoList = [
+                    { parent: 'Khongelani Baloyi - jhb', children: ['Photographer', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Khongelani.png' },
+                    { parent: 'Mzamo Myeki - jhb', children: ['Photographer', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Mzamo%20Myeki.png' },
+                    { parent: 'Ayakha  - jhb', children: ['Photographer', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Ayakha.png' },
+                    { parent: 'Tkae Mthungathi- Kagiso', children: ['Photographer', 'Kagiso'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Tkae%20Mthungathi.png' },
+                    { parent: 'Shaun Khoza - Kagiso', children: ['Photographer', 'Kagiso'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Shaun%20Khoza.jpg' },
+                    { parent: 'Sihle Sithole - East Gate', children: ['Photographer', 'East Gate'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Sihle%20Sithole.jpg' },
+                    { parent: 'Kgomotso Moab - East Gate', children: ['Photographer', 'East Gate'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Kgomosto%20Moab.png' },
+                  ];
+              
+                  // Function to render the todo list based on the search input
+                  function renderTodoList(searchText) {
+                    const todoListContainer = document.getElementById('todoList');
+                    todoListContainer.innerHTML = '';
+              
+                    if (searchText === '') {
+                      // If there's nothing in the search field, the button is inactive.
+                      return;
+                    }
+              
+                    const searchResults = todoList.filter(item => item.parent.toLowerCase().includes(searchText.toLowerCase()));
+              
+                    if (searchResults.length === 0) {
+                      todoListContainer.innerHTML = '<li>No matching items found.</li>';
+                    } else {
+                      searchResults.forEach((item, index) => {
+                        const todoItem = document.createElement('div');
+                        todoItem.classList.add('todo-item');
+                        todoItem.innerHTML = `
+                        <img style="width: 80px; height:80px; border-radius:50%;" src="${item.avatarURL}" alt="Avatar">
+                          <p class="todo-text"> ${item.parent} - ${item.children.join(', ')}</p>
+                        `;
+                        todoListContainer.appendChild(todoItem);
+                      });
+                    }
+                  }
+              
+                  // Function to handle the search button click
+                  function searchTodo() {
+                    const searchInput = document.getElementById('searchInput');
+                    const searchText = searchInput.value;
+                    renderTodoList(searchText);
+                  }
+              
+                  // Listen for input changes and activate/deactivate the search button
+                  document.getElementById('searchInput').addEventListener('input', function () {
+                    const searchButton = document.getElementById('searchButton');
+                    if (this.value === '') {
+                      searchButton.disabled = true;
+                    } else {
+                      searchButton.disabled = false;
+                    }
+                  });
+                </script>
+              </div>
+              <script>
+                
+              </script>
+              <div class="media-body"> <div class="btn-container">
+                      <button type="submit" class="signin-button" id="searchButton" disabled onclick="searchTodo()">Search</button>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    
+
+
+<head>
+ 
+<style>
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700|Didact+Gothic&display=swap");
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    font-size: 16px;
+    color: #292929;
+    line-height: 1.7em;
+    font-weight: 400;
+    background: #F0F0F0;
+    font-family: "Didact Gothic", sans-serif;
+    
+}
+
+
+.section-bg {
+    padding: 60px 0;
+    background: #F0F0F0;
+}
+
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    position: relative;
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 1;
+    text-transform: capitalize;
+    display: inline-block;
+    font-family: "Didact Gothic", sans-serif;
+}
+
+
+
+
+
+
+
+.single-product {
+    box-shadow: inset -2px -2px 8px white,
+     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+       inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 3px;
+    border-radius: 18%;
+    margin-bottom: 30px;
+    padding: 8px;
+}
+
+.single-product .product-thumb {
+    margin-bottom: 5px;
+}
+
+.single-product .product-thumb img {
+    border-radius: 20%;
+}
+
+.single-product .product-title {
+    margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.single-product .product-title h3 {
+    font-family: "Didact Gothic", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.single-product .product-title h3 a {
+    color: #292929;
+    text-decoration: none;
+}
+
+.single-product .product-title h3 a:hover {
+    color: #7289ab;
+}
+
+.single-product:hover {
+    box-shadow: -2px -2px 8px white,
+     -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+       2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+.product-btns
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+    color: #292929;
+}
+
+
+
+
+
+
+
+
+.btn-small {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 8px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: inset -2px -2px 8px white,
+     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+       inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    transition: 0.4s;
+}
+
+
+.btn-round {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: -2px -2px 8px white, 
+    -2px -2px 12px rgba(255, 255, 255, 0.5), 
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+     2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+.btn-small:hover {
+    box-shadow: -2px -2px 8px white,
+     -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+       2px 2px 8px rgba(0, 0, 0, 0.15);
+    color: #7289ab;
+    text-decoration: none;
+}
+
+.btn-small:hover span {
+    display: inline-block;
+    transform: scale(0.98);
+}
+
+
+.btn-round:hover {
+    box-shadow: inset -2px -2px 8px white,
+     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+       inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    color: #7289ab;
+}
+
+
+.button-center
+{
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+.bttn-def {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 14px 42px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    box-shadow: -2px -2px 8px white, -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.15);
+    transition: 0.4s;
+}
+
+.bttn-def:hover {
+    color: #7289ab;
+    box-shadow: inset -2px -2px 8px white, inset -2px -2px 12px rgba(255, 255, 255, 0.5), inset 2px 2px 4px rgba(255, 255, 255, 0.1), inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bttn-def:hover span {
+    display: inline-block;
+    transform: scale(0.98);
+}
+
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section-title">
+                        <h4>Mzamo's Pictures</h4>
+                    </div>
+                </div>
+            </div>
+
+         
+             
+            <div class="">
+              <div class="owl-carousel owl-carousel2 owl-theme col-lg-12" style="width: 100%;">
+                <div>
+                  <div class="card"> 
+                    <a href="Main/element-hero-blocks.html"> <img class="card-img" src="img/deco.jpeg" alt="">
+                    <div class="card-img-overlay"> 
+                      <div class="bottom-text">
+                        <h5 class="card-title">Events</h5>
+                      </div>
+                    </div>
+                  </a>
+                  </div>
+                </div>
+                <div>
+                  <div class="card"> 
+                    <a href="Main/element-hero-blocks.html"> <img class="card-img" src="img/w1.jpg" alt="">
+                    <div class="card-img-overlay"> 
+                      <div class="bottom-text">
+                        <h5 class="card-title" style="padding-right: 10px;">Weddings</h5>
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <div class="card"> 
+                    <a href="Main/element-hero-blocks.html"> <img class="card-img" src="img/un.jpeg" alt="">
+                    <div class="card-img-overlay"> 
+                      <div class="bottom-text">
+                        <h5 class="card-title">Gov</h5>
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <div class="card"> 
+                    <a href="Main/element-hero-blocks.html"> <img class="card-img" src="img/adventure.jpeg" alt="">
+                    <div class="card-img-overlay"> 
+                      <div class="bottom-text">
+                        <h5 class="card-title">Coorp</h5>
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row button-center">
+                <div class="col-xl-6 centered">
+                    <a href="" class="bttn-def"><span>Load more</span></a>
+                </div>
+            </div>
+
+        </div>
+
+ 
+      <div class="row social-links">
+        <ul class="nav mx-auto">
+          <li class="nav-item"> <a class="nav-link" href="https://www.facebook.com"><img src="assets/img/facebook.png" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="https://twitter.com/"><img src="assets/img/twitter.png" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><img src="assets/img/pinterest.png" alt=""></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#"><img src="assets/img/google-plus.png" alt=""></a> </li>
+        </ul>
+      </div>
+      <p class="text-center d-block"><a href="https://sowetolive.com/about" target="_blank"> &copy; 2023 | branch kode</a>  &nbsp;  |  &nbsp; design by <a href="https://siyapercy.online/" target="_blank">siyapercy trust</a> &nbsp; | &nbsp;  All rights reserved</p>
+    
+    </div>
+  </div>
+  </div>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS --> 
+  <script src="assets/js/jquery-3.3.1.slim.min.js"></script> 
+  <script src="assets/js/popper.min.js" ></script> 
+  <script src="assets/js/bootstrap.min.js"></script> 
+  <script src="assets/js/owl.carousel.min.js"></script> 
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

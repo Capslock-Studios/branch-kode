@@ -10,9 +10,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="script" href="db.js">
+
   <title>Branch Kode | Come if you need good pictures. We are the client hub for all good photographers - </title>
   <style>
      .password {
@@ -63,12 +61,11 @@
 
 <body>
   <nav class="navbar navbar-expand-md  fixed-top maine-menu">
-    <div class="container"  style="padding: 40px;">
+    <div class="container">
      <div id="my-nav" class="navbar-collapse">
-         <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav mx-auto">
           <a href="index.html"><img style="width:200px;" src="img/branch.gif" alt=""></a>
          </ul>
-         <br>
       </div>
     </div>
   </nav>
@@ -82,19 +79,14 @@
             
             <div class="media mb-3">
               <div class="col-md-12">
+                <label for="parkingName">Type here to search</label>
                 
                 <input type="text" style="border-radius: 22px;" class="form-control"  id="searchInput" placeholder="Where is your shoot" autocomplete="off">
                 <ul id="todoList"></ul>
                 <script>
                   // Define the list of todo items
                   const todoList = [
-                    { parent: 'Khongelani Baloyi - jhb', children: ['Photographer', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Khongelani.png' },
-                    { parent: 'Mzamo Myeki - jhb', children: ['Photographer', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Mzamo%20Myeki.png' },
-                    { parent: 'Ayakha  - jhb', children: ['Photographer', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Ayakha.png' },
-                    { parent: 'Tkae Mthungathi- Kagiso', children: ['Photographer', 'Kagiso'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Tkae%20Mthungathi.png' },
-                    { parent: 'Shaun Khoza - Kagiso', children: ['Photographer', 'Kagiso'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Shaun%20Khoza.jpg' },
-                    { parent: 'Sihle Sithole - East Gate', children: ['Photographer', 'East Gate'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Sihle%20Sithole.jpg' },
-                    { parent: 'Kgomotso Moab - East Gate', children: ['Photographer', 'East Gate'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Kgomosto%20Moab.png' },
+                    { parent: 'Khongelani Baloyi - jhb', children: ['Khongelani Baloyi', 'Johannesburg'] , avatarURL: 'https://jazzy-meerkat-74ca04.netlify.app/img/Khongelani.png' },
                   ];
               
                   // Function to render the todo list based on the search input
@@ -116,8 +108,8 @@
                         const todoItem = document.createElement('div');
                         todoItem.classList.add('todo-item');
                         todoItem.innerHTML = `
-                        <img style="width: 80px; height:80px; border-radius:50%;" src="${item.avatarURL}" alt="Avatar">
-                        <a href="#" data-toggle="modal" data-target="#exampleModalCenterPrince"> <p class="todo-text"> ${item.parent} - ${item.children.join(', ')}</p></a>
+                        <img class="avatar" src="${item.avatarURL}" alt="Avatar">
+                          <p class="todo-text"> ${item.parent} - ${item.children.join(', ')}</p>
                         `;
                         todoListContainer.appendChild(todoItem);
                       });
@@ -142,10 +134,9 @@
                   });
                 </script>
               </div>
-              <script>
-                
-              </script>
-              <div class="media-body"> <div class="btn-container">
+              <div class="media-body">
+                    
+                    <div class="btn-container">
                       <button type="submit" class="signin-button" id="searchButton" disabled onclick="searchTodo()">Search</button>
                     </div>
               </div>
@@ -633,7 +624,7 @@ a {
               <div class="modal-body p-4 p-md-5">
                 <form action="#" class="appointment-form ftco-animate" >
                   <h5>Shaun: Maboneng photographer</h5>
-                  <a href="#"> <img class="-img" src="img/Shaun Khoza.jpg" alt="Sbuda's Truck">
+                  <a href="#"> <img class="card-img" src="img/Shaun Khoza.jpg" alt="Sbuda's Truck">
                     </a>
                     <br><br>
                     <div class="product-btns" style="padding-top: 5px;">

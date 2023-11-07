@@ -432,8 +432,7 @@ h2 {
       border-radius: 15px; }
     .recent .card h5 {
       font-size: 20px;
-      color: #fff;
-      margin-bottom: 5px; }
+      color: #fff;}
     .recent .card p {
       font-size: 14px;
       color: #e90e65; }
@@ -460,7 +459,6 @@ h2 {
   .recent .heart {
     width: auto !important; }
   .recent .bottom-text {
-    position: absolute;
     bottom: 30px; }
   @media (max-width: 767px) {
     .recent {
@@ -783,7 +781,14 @@ footer {
     margin-right: 0; }
   .container-fluid {
     padding-left: 0;
-    padding-right: 0; } }
+    padding-right: 0; } 
+  
+  
+  
+    .row-scroll {
+      max-width: 918px;
+    
+    }
 
 /* Blog page style */
 .fh5co-blog-content {
